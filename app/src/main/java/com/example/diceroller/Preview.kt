@@ -28,20 +28,21 @@ fun DefaultPreview(context:Context) = DiceRollerTheme {
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight(),
-        horizontalAlignment = Alignment.CenterHorizontally,
+        horizontalAlignment = CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
 
+        //variable that holds the value of the imges to display
         var diceImage by remember { mutableStateOf( R.drawable.dice_1 ) }
-        var myDice = Dice(6)
+        var myDice = Dice()//Dice object
 
-        Image(painter = painterResource(id = diceImage), contentDescription = null)
+        Image(painter = painterResource(id = diceImage), contentDescription = null)//imageView that displays the dice images
 
-        Spacer(modifier = Modifier.height(30.dp))
+        Spacer(modifier = Modifier.height(30.dp))//spacer to make space between the image and the button
 
         Button(
             onClick = {
-                diceImage= myDice.roll()
+                diceImage= myDice.roll()// the method roll() from dice object that pic random image to display
                 Toast.makeText( context,"The Dice Rolled",Toast.LENGTH_SHORT).show()
                       },
             shape = CircleShape,
@@ -49,7 +50,7 @@ fun DefaultPreview(context:Context) = DiceRollerTheme {
                 .fillMaxWidth()
                 .padding(end = 135.dp, start = 135.dp)
         ) {
-            Text(text = "Roll")
+            Text(text = "Roll")//the text of the button
         }
     }
 

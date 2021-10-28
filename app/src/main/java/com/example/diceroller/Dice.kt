@@ -1,6 +1,6 @@
 package com.example.diceroller
 
-class Dice (val numSides:Int){
+class Dice (){
 
     /**
      * Roll the dice and update the screen with the result.
